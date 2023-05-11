@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool readyToJump;        // 設定是否可以跳躍
     private float horizontalInput;   // 左右方向按鍵的數值(-1 <= X <= +1)
-    private float verticalInput;     // 上下方向按鍵的數值(-1 <= Y <= +1)
+    private float verticalInput;     // 上下方向按鍵的數值(-1 <= z <= +1)
 
     private Vector3 moveDirection;   // 移動方向
 
