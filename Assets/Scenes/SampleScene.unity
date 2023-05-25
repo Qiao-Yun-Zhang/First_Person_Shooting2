@@ -212,7 +212,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  grounded: 1
+  grounded: 0
 --- !u!114 &48382688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,12 +227,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCamera: {fileID: 963194227}
   attackPoint: {fileID: 1154909664}
-  bullet: {fileID: 1133796036}
+  bullet: {fileID: 8775947567475178705, guid: 62670e498cf41ea439a369a38ab152b1, type: 3}
   magazineSize: 30
   bulletsLeft: 0
   reloadTime: 3
+  recoilForce: 3
   ammunitionDisplay: {fileID: 1564065266}
   reloadingDisplay: {fileID: 435959409}
+  animatorObject: {fileID: 948319221}
 --- !u!1 &361490366
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +614,7 @@ GameObject:
   - component: {fileID: 948319220}
   - component: {fileID: 948319219}
   - component: {fileID: 948319218}
+  - component: {fileID: 948319221}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -696,6 +699,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948319216}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &948319221
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948319216}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f129590432ddeaf4192a3ebd9dfe9ee2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -795,11 +817,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensX: 500
   sensY: 500
---- !u!1 &1133796036 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8775947567475178705, guid: 62670e498cf41ea439a369a38ab152b1, type: 3}
-  m_PrefabInstance: {fileID: 7781206394285791179}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1154909663
 GameObject:
   m_ObjectHideFlags: 0
