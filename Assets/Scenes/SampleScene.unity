@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 48382689}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  grounded: 0
+  grounded: 1
 --- !u!114 &48382688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,7 +232,7 @@ MonoBehaviour:
   magazineSize: 30
   bulletsLeft: 0
   reloadTime: 3
-  recoilForce: 3
+  recoilForce: 1
   ammunitionDisplay: {fileID: 1564065266}
   reloadingDisplay: {fileID: 435959409}
   animatorObject: {fileID: 948319221}
@@ -248,15 +248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15491876948338642a9ba6505211849d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerCamera: {fileID: 963194227}
-  attackPoint: {fileID: 1154909664}
-  bullet: {fileID: 8775947567475178705, guid: 62670e498cf41ea439a369a38ab152b1, type: 3}
-  magazineSize: 30
-  bulletsLeft: 0
-  reloadTime: 3
-  recoilForce: 3
-  ammunitionDisplay: {fileID: 1564065266}
-  reloadingDisplay: {fileID: 435959409}
   weaponObjects:
   - {fileID: 2135607203}
   - {fileID: 2058382487}
@@ -385,8 +376,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Reloading
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 27d22f02d690a534282a734991d25e15, type: 2}
+  m_sharedMaterial: {fileID: -2088936385677315995, guid: 27d22f02d690a534282a734991d25e15, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1028,8 +1019,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 27d22f02d690a534282a734991d25e15, type: 2}
+  m_sharedMaterial: {fileID: -2088936385677315995, guid: 27d22f02d690a534282a734991d25e15, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1053,8 +1044,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 46
+  m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1116,6 +1107,7 @@ GameObject:
   - component: {fileID: 1607914250}
   - component: {fileID: 1607914249}
   - component: {fileID: 1607914253}
+  - component: {fileID: 1607914254}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Target
@@ -1215,6 +1207,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1607914254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607914248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42657e93fdbae444aaf2194c7cbdf54c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetName: Player
+  minimunTraceDistance: 20
 --- !u!1 &1846976771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,6 +1427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2058382488}
+  - component: {fileID: 2058382489}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -1443,6 +1450,29 @@ Transform:
   m_Father: {fileID: 963194228}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2058382489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058382487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e21dc0cff2de204dbb58dfe3d532678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerObejct: {fileID: 48382683}
+  PlayerCamera: {fileID: 963194227}
+  attackPoint: {fileID: 1154909664}
+  bullet: {fileID: 8775947567475178705, guid: 62670e498cf41ea439a369a38ab152b1, type: 3}
+  isGun: 1
+  magazineSize: 30
+  bulletsLeft: 0
+  reloadTime: 3
+  recoilForce: 1
+  ammunitionDisplay: {fileID: 1564065266}
+  reloadingDisplay: {fileID: 435959409}
 --- !u!1 &2135607203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1482,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2135607204}
+  - component: {fileID: 2135607205}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -1466,14 +1497,37 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135607203}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.4, y: -0.4, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 1105168349798715007}
   m_Father: {fileID: 963194228}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &2135607205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135607203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e21dc0cff2de204dbb58dfe3d532678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerObejct: {fileID: 48382683}
+  PlayerCamera: {fileID: 963194227}
+  attackPoint: {fileID: 0}
+  bullet: {fileID: 0}
+  isGun: 0
+  magazineSize: 0
+  bulletsLeft: 0
+  reloadTime: 0
+  recoilForce: 0
+  ammunitionDisplay: {fileID: 1564065266}
+  reloadingDisplay: {fileID: 435959409}
 --- !u!1 &296543159195899077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,13 +1573,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296543159195899077}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.4, y: -0.4, z: 1}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2135607204}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2242075864229360912
 MeshRenderer:
   m_ObjectHideFlags: 0
