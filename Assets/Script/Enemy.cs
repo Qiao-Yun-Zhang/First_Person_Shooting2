@@ -1,19 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;    //使用UnityEngine.AI 
 
 public class Enemy : MonoBehaviour
 {
     [Header("追蹤目標設定")]
-    public string targetName = "Player";                     // 設定目標物件的標籤名稱
-    public float minimunTraceDistance = 5.0f;                // 設定最短的追蹤距離
+    public string targetName = "Player";       // 設定目標物件的標籤名稱
+    public float minimunTraceDistance = 5.0f;  // 設定最短的追蹤距離
 
-    GameObject targetObject = null;                          // 目標物件的變數
-    bool enableMove = false;                                 // 如果目標物件距離夠短，這個變數為true
+    NavMeshAgent navMeshAgent;                 // 宣告NavMeshAgent物件
+    GameObject targetObject = null;            // 目標物件的變數
 
     void Start()
     {
         targetObject = GameObject.FindGameObjectWithTag(targetName);   // 以帶有特定的標籤名稱為目標物件
+        navMeshAgent = GetComponent<NavMeshAgent>();                   // 接收NavMeshAgent
     }
 
     void Update()
@@ -21,17 +23,16 @@ public class Enemy : MonoBehaviour
         // 計算目標物件和自己的距離
         float distance = Vector3.Distance(transform.position, targetObject.transform.position);
 
-        // 判斷式：判斷距離是否低於最短追蹤距離
+        // 判斷式：判斷距離是否低於最短追蹤距離，如果與目標的距離大於最小距離，進行追蹤，否則就停止
         if (distance >= minimunTraceDistance)
-            enableMove = false;
+            navMeshAgent.enabled = false;
         else
-            enableMove = true;
+            navMeshAgent.enabled = true;
     }
 
     void FixedUpdate()
     {
-        // enableMove為true，就去追蹤目標
-        if (enableMove)
-            transform.position = Vector3.Lerp(transform.position, targetObject.transform.position, 0.01f); // 讓自己往目標物的座標移動
+        if (navMeshAgent.enabled)
+            navMeshAgent.SetDestination(targetObject.transform.position);    // 讓自己往目標物的座標移動   
     }
 }
